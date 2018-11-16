@@ -5,6 +5,10 @@ var Game = {};
 
 Game.preload = function(){
     Game.scene = this; // Handy reference to the scene (alternative to `this` binding)
+    
+    // deal with CORS
+    this.load.crossOrigin = "Anonymous";
+
     // We will be loading files on the fly, so we need to listen to events triggered when
     // a file (a tilemap, more specifically) is added to the cache
     this.cache.tilemap.events.on('add',function(cache,key){
@@ -17,6 +21,9 @@ Game.preload = function(){
 };
 
 Game.create = function(){
+    // deal with CORS
+    this.load.crossOrigin = "Anonymous";
+    
     // Handles the clicks on the map to make the character move
     this.input.on('pointerup',Game.handleClick);
 
